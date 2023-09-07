@@ -1,0 +1,29 @@
+// E.  Print the country which use US Dollars as currency.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>country US Dollars</h1>
+    <script>
+          var request = new XMLHttpRequest();
+        http.open("GET", "https://restcountries.com/v3.1/all");
+        http.send();
+
+        http.onload = function () {
+            var data = JSON.parse(http.response);
+            var cur=[];
+          for(i=0;i<data.length;i++){
+            if(data[i].currencies[0].code==="USD")
+            {
+                console.log("name:",data[i].name,"==>",data[i].currencies[0].code)
+            }
+        }   
+        }
+    </script>
+</body>
+</html>
